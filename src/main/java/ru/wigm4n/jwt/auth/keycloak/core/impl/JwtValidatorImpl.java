@@ -4,12 +4,10 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions;
-import ru.wigm4n.jwt.auth.keycloak.exception.JwtValidateException;
 import ru.wigm4n.jwt.auth.keycloak.core.Jwt;
 import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
-
-import static ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions.checkNotNull;
+import ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions;
+import ru.wigm4n.jwt.auth.keycloak.exception.JwtValidateException;
 
 @NoArgsConstructor
 @Service

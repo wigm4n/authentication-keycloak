@@ -17,7 +17,8 @@ import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
-import ru.wigm4n.jwt.auth.keycloak.configuration.UnauthorizedEntryPoint;
+import ru.wigm4n.jwt.auth.keycloak.configuration.KeycloakConfigurationProperties;
+import ru.wigm4n.jwt.auth.keycloak.configuration.entrypoint.UnauthorizedEntryPoint;
 
 @Configuration
 @EnableWebSecurity

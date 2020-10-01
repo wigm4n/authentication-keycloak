@@ -1,4 +1,4 @@
-package ru.wigm4n.jwt.auth.keycloak.configuration;
+package ru.wigm4n.jwt.auth.keycloak.configuration.entrypoint;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

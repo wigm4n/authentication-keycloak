@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+keycloak:
+  realm: sd
+  auth-server-url: sad
+  resource: asd
+  credentials:
+    secret: sd
+  use-resource-role-mappings: true
+  bearer-only: true
+
+custom:
+  keycloak:
+    rolesEnabled: false
+    taPassword: ${ta_password}
+    taUsername: ${ta_username}

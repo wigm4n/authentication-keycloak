@@ -2,16 +2,16 @@ package ru.wigm4n.jwt.auth.keycloak.core.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ru.wigm4n.jwt.auth.keycloak.configuration.KeycloakConfigurationProperties;
+import ru.wigm4n.jwt.auth.keycloak.configuration.TaJwtProviderSettings;
+import ru.wigm4n.jwt.auth.keycloak.core.Jwt;
+import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
+import ru.wigm4n.jwt.auth.keycloak.core.TaJwtProvider;
 import ru.wigm4n.jwt.auth.keycloak.core.internal.JwtTokenPair;
 import ru.wigm4n.jwt.auth.keycloak.exception.GetJwtException;
 import ru.wigm4n.jwt.auth.keycloak.rest.RestKeycloakClient;
 import ru.wigm4n.jwt.auth.keycloak.rest.RestTemplateConfiguration;
 import ru.wigm4n.jwt.auth.keycloak.rest.dto.JwtRequest;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaJwtProviderSettings;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaSettings;
-import ru.wigm4n.jwt.auth.keycloak.core.Jwt;
-import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
-import ru.wigm4n.jwt.auth.keycloak.core.TaJwtProvider;
 
 import java.util.Optional;
 import java.util.concurrent.locks.ReentrantLock;
@@ -21,9 +21,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DefaultTaJwtProvider implements TaJwtProvider {
 
     public DefaultTaJwtProvider(TaJwtProviderSettings config, JwtValidator jwtValidator,
-                                RestTemplateConfiguration restTemplateConfiguration, TaSettings taSettings) {
+                                RestTemplateConfiguration restTemplateConfiguration,
+                                KeycloakConfigurationProperties properties) {
         this.config = config;
-        this.client = new RestKeycloakClient(jwtValidator, restTemplateConfiguration, taSettings, config.getUri());
+        this.client = new RestKeycloakClient(jwtValidator, restTemplateConfiguration, properties, config.getUri());
     }
 
     private final TaJwtProviderSettings config;

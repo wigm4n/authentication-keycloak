@@ -2,13 +2,10 @@ package ru.wigm4n.jwt.auth.keycloak.core.impl;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions;
 import ru.wigm4n.jwt.auth.keycloak.core.Jwt;
+import ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions;
 
 import java.util.Optional;
-
-import static ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions.checkNotNull;
-import static ru.wigm4n.jwt.auth.keycloak.core.internal.Preconditions.checkNotNullOrEmpty;
 
 
 public class JwtImpl implements Jwt {

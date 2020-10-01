@@ -1,4 +1,4 @@
-package ru.wigm4n.jwt.auth.keycloak.cfg;
+package ru.wigm4n.jwt.auth.keycloak.configuration;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaSettings;
+import ru.wigm4n.jwt.auth.keycloak.configuration.KeycloakConfigurationProperties;
 
 import java.util.Base64;
 
@@ -15,7 +15,7 @@ import java.util.Base64;
 public class RestTemplateConfiguration {
 
     private final RestTemplateBuilder restTemplateBuilder;
-    private final TaSettings taSettings;
+    private final KeycloakConfigurationProperties properties;
 
     @Bean
     public RestTemplate restTemplate() {
@@ -34,6 +34,6 @@ public class RestTemplateConfiguration {
 
     private String encodeCredentialsForBasicAuth() {
         return Base64.getEncoder()
-                     .encodeToString((taSettings.getUsername() + ":" + taSettings.getPassword()).getBytes());
+                     .encodeToString((properties.getTaUsername() + ":" + properties.getTaPassword()).getBytes());
     }
 }

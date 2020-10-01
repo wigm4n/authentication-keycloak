@@ -1,4 +1,4 @@
-package ru.wigm4n.jwt.auth.keycloak.adapter;
+package ru.wigm4n.jwt.auth.keycloak.configuration;
 
 
 import lombok.AllArgsConstructor;
@@ -13,12 +13,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.core.io.support.PropertySourceFactory;
-import ru.wigm4n.jwt.auth.keycloak.rest.RestTemplateConfiguration;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaJwtProviderSettings;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaSettings;
-import ru.wigm4n.jwt.auth.keycloak.core.impl.DefaultTaJwtProvider;
 import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
 import ru.wigm4n.jwt.auth.keycloak.core.TaJwtProvider;
+import ru.wigm4n.jwt.auth.keycloak.core.impl.DefaultTaJwtProvider;
+import ru.wigm4n.jwt.auth.keycloak.rest.RestTemplateConfiguration;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,8 +39,8 @@ public class TaJwtProviderConfiguration {
     @ConditionalOnMissingBean
     public TaJwtProvider defaultTaJwtProvider(JwtValidator jwtValidator,
                                               RestTemplateConfiguration restTemplateConfiguration,
-                                              TaSettings taSettings) {
-        return new DefaultTaJwtProvider(get(), jwtValidator, restTemplateConfiguration, taSettings);
+                                              KeycloakConfigurationProperties properties) {
+        return new DefaultTaJwtProvider(get(), jwtValidator, restTemplateConfiguration, properties);
     }
 
     private TaJwtProviderSettings get() {

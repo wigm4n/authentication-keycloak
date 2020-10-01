@@ -5,12 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import ru.wigm4n.jwt.auth.keycloak.configuration.KeycloakConfigurationProperties;
+import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
+import ru.wigm4n.jwt.auth.keycloak.core.internal.JwtTokenPair;
 import ru.wigm4n.jwt.auth.keycloak.exception.GetJwtException;
 import ru.wigm4n.jwt.auth.keycloak.rest.dto.JwtRequest;
 import ru.wigm4n.jwt.auth.keycloak.rest.dto.JwtResponse;
-import ru.wigm4n.jwt.auth.keycloak.core.internal.JwtTokenPair;
-import ru.wigm4n.jwt.auth.keycloak.core.JwtValidator;
-import ru.wigm4n.jwt.auth.keycloak.cfg.TaSettings;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -23,7 +23,7 @@ public class RestKeycloakClient {
 
     private final JwtValidator jwtValidator;
     private final RestTemplateConfiguration configuration;
-    private final TaSettings taSettings;
+    private final KeycloakConfigurationProperties properties;
     private final URI endpoint;
 
     public JwtTokenPair getToken(JwtRequest request) {
@@ -73,9 +73,9 @@ public class RestKeycloakClient {
             .append("&client_secret=")
             .append(encode(request.getClientSecret()))
             .append("&username=")
-            .append(encode(taSettings.getUsername()))
+            .append(encode(properties.getTaUsername()))
             .append("&password=")
-            .append(encode(taSettings.getPassword()));
+            .append(encode(properties.getTaPassword()));
 
         if (request.getRefreshToken() != null) {
             builder.append("&refresh_token=")
