@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  ru.wigm4n.jwt.auth.keycloak.interceptor.ServiceInterceptor,\
+  ru.wigm4n.jwt.auth.keycloak.interceptor.ServiceInterceptorAppConfig,\
+  ru.wigm4n.jwt.auth.keycloak.adapter.KeycloakSecurityConfig,\
+  ru.wigm4n.jwt.auth.keycloak.adapter.TaJwtProviderConfiguration

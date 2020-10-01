@@ -1,0 +1,5 @@
+jwt:
+  OpenIdConnectEndpoint:
+    location: http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/token
+    clientIdEnv: ta_client_id
+    clientSecretEnv: ta_client_secret
